@@ -1,55 +1,51 @@
-import React, { Component } from 'react';
-import { Button, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import logo from '../../images/logo.png';
 import './header.css';
 
-export class Topbar extends Component {
-    render() {
-        return (
-            <Navbar expand='lg' className='px-4 text-capitalize' style={{ backgroundColor: '#fff' }}>
-                <Navbar.Brand href='#home'>
-                    <img src={logo} alt='logo' />
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls='basic-navbar-nav' />
-                <Navbar.Collapse id='basic-navbar-nav'>
-                    <Nav className='mx-auto'>
-                        <Link to='/'>
-                            <Nav.Link href='#home'>Home</Nav.Link>
-                        </Link>
+export default function Topbar() {
+    return (
+        <Navbar expand='lg' className='px-4 text-capitalize' style={{ backgroundColor: '#fff' }}>
+            <Navbar.Brand href='#home'>
+                <img src={logo} alt='logo' />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls='basic-navbar-nav' />
+            <Navbar.Collapse id='basic-navbar-nav'>
+                <Nav className='mx-auto'>
+                    <LinkContainer to="/">
+                        <Nav.Link>Home</Nav.Link>
+                    </LinkContainer>
 
-                        <NavDropdown title='Administration' id='administration-dropdown'>
-                            <Link to='/courses'>
-                                <NavDropdown.Item href='/courses'>Courses</NavDropdown.Item>
-                            </Link>
-                            <Link to='/gallery'>
-                                <NavDropdown.Item href='/gallery'>gallery</NavDropdown.Item>
-                            </Link>
-                            <Link to='/events'>
-                                <NavDropdown.Item href='/events'>events</NavDropdown.Item>
-                            </Link>
-                        </NavDropdown>
-                        <Link to='/admission'>
-                            <Nav.Link href='/admission'>Admission</Nav.Link>
-                        </Link>
-                        <Link to='/faculty'>
-                            <Nav.Link href='/faculty'>Faculty</Nav.Link>
-                        </Link>
-                        <Link to='/about'>
-                            <Nav.Link href='/about'>About</Nav.Link>
-                        </Link>
-                        <Link to='/contact'>
-                            <Nav.Link href='/contact'>Contact</Nav.Link>
-                        </Link>
-                    </Nav>
-                    <Form inline>
-                        <FormControl type='text' placeholder='Search' className='mr-sm-2' />
-                        <Button variant='outline-success enroll-btn'>Enroll</Button>
-                    </Form>
-                </Navbar.Collapse>
-            </Navbar>
-        );
-    }
+                    <NavDropdown title='Administration' id='administration-dropdown'>
+                        <LinkContainer to="/courses">
+                            <NavDropdown.Item>Courses</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/gallery">
+                            <NavDropdown.Item>Gallery</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/events">
+                            <NavDropdown.Item>Events</NavDropdown.Item>
+                        </LinkContainer>
+                    </NavDropdown>
+
+                    <LinkContainer to="/faculty">
+                        <Nav.Link>Faculty</Nav.Link>
+                    </LinkContainer>
+
+                    <LinkContainer to="/about">
+                        <Nav.Link>About</Nav.Link>
+                    </LinkContainer>
+
+                    <LinkContainer to="/contact">
+                        <Nav.Link>Contact</Nav.Link>
+                    </LinkContainer>
+                </Nav>
+                {/* <Form className='d-flex'>
+                    <FormControl type='text' placeholder='Search' className='mr-sm-2' />
+                    <Button variant='outline-success enroll-btn'>Enroll</Button>
+                </Form> */}
+            </Navbar.Collapse>
+        </Navbar>
+    );
 }
-
-export default Topbar;
