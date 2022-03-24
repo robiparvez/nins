@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 export class VideoGallery extends Component {
   render() {
@@ -14,9 +14,9 @@ export class VideoGallery extends Component {
           <Col lg={4} sm={6} className="mx-auto">
             <iframe
               src="https://www.youtube.com/embed/E7wJTI-1dvQ"
-              frameborder="1"
+              frameBorder="1"
               allow="autoplay; encrypted-media"
-              allowfullscreen
+              allowFullScreen
               title="video"
               className="video-frame"
             />
@@ -24,9 +24,9 @@ export class VideoGallery extends Component {
           <Col lg={4} sm={6} className="mx-auto">
             <iframe
               src="https://www.youtube.com/embed/E7wJTI-1dvQ"
-              frameborder="1"
+              frameBorder="1"
               allow="autoplay; encrypted-media"
-              allowfullscreen
+              allowFullScreen
               title="video"
               className="video-frame"
             />
@@ -34,9 +34,9 @@ export class VideoGallery extends Component {
           <Col lg={4} sm={6} className="mx-auto">
             <iframe
               src="https://www.youtube.com/embed/E7wJTI-1dvQ"
-              frameborder="1"
+              frameBorder="1"
               allow="autoplay; encrypted-media"
-              allowfullscreen
+              allowFullScreen
               title="video"
               className="video-frame"
             />

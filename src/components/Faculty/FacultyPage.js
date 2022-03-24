@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import "./faculty.css";
 
 class FacultyPage extends Component {
@@ -21,25 +21,25 @@ class FacultyPage extends Component {
             <h3 className="name">{member}</h3>
             <h4 className="title">Web Developer</h4>
           </div>
-          <ul class="social">
+          <ul className="social">
             <li>
-              <a class="facebook" href="#fb">
-                <i class="fab fa-facebook-f"></i>
+              <a className="facebook" href="#fb">
+                <i className="fab fa-facebook-f"></i>
               </a>
             </li>
             <li>
-              <a class="twitter" href="#twitter">
-                <i class="fab fa-twitter"></i>
+              <a className="twitter" href="#twitter">
+                <i className="fab fa-twitter"></i>
               </a>
             </li>
             <li>
-              <a class="dribbble" href="#dribble">
-                <i class="fab fa-dribbble"></i>
+              <a className="dribbble" href="#dribble">
+                <i className="fab fa-dribbble"></i>
               </a>
             </li>
             <li>
-              <a class="linkedin" href="#linkedin">
-                <i class="fab fa-linkedin-in"></i>
+              <a className="linkedin" href="#linkedin">
+                <i className="fab fa-linkedin-in"></i>
               </a>
             </li>
           </ul>
