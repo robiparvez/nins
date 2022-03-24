@@ -1,8 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import React from 'react';
-// import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Contact from './components/contact/Contact';
 import Event from './components/Events/Event';
@@ -15,60 +14,47 @@ import Footer from './container/footer/Footer';
 import FullGallery from './container/gallery/FullGallery';
 import PhotoGallary from './container/gallery/PhotoGallery';
 import Slider from './container/header/Slider';
+import Topbar from './container/header/Topbar';
 import Message from './container/Messages/Message';
-// import Topbar from './container/header/Topbar';
 import VideoPage from './container/videoSection/VideoPage';
 
-class App extends React.Component {
-    /* constructor(props) {
-        super(props);
-    } */
-    componentDidMount() {
+export default function App() {
+    useEffect(() => {
         AOS.init({
             duration: 900
         });
-    }
-    render() {
-        return (
-            <Router basename={process.env.PUBLIC_URL}>
-                <div className='App'>
-                    {/* <Topbar /> */}
-                    <Switch>
-                        <Route exact path='/'>
-                            <Slider />
-                            <About />
-                            <Message />
-                            <VideoPage />
-                            <Courses />
-                            <PhotoGallary />
-                        </Route>
-                        <Route exact path='/about'>
-                            <AboutPage />
-                        </Route>
-                        <Route exact path='/gallery'>
-                            <FullGallery />
-                        </Route>
-                        <Route exact path='/courses'>
-                            <Courses />
-                        </Route>
-                        <Route exact path='/events'>
-                            <Event />
-                        </Route>
-                        <Route exact path='/notification'>
-                            <Notify />
-                        </Route>
-                        <Route exact path='/faculty'>
-                            <FacultyPage />
-                        </Route>
-                        <Route exact path='/contact'>
-                            <Contact />
-                        </Route>
-                    </Switch>
-                    <Footer />
-                </div>
-            </Router>
-        );
-    }
-}
+    }, []);
 
-export default App;
+    return (
+        <Router basename={process.env.PUBLIC_URL}>
+            <div className='App'>
+                <Topbar />
+                <Routes>
+                    <Route
+                        exact
+                        path='/'
+                        element={
+                            <>
+                                <Slider />
+                                <About />
+                                <Message />
+                                <VideoPage />
+                                <Courses />
+                                <PhotoGallary />
+                            </>
+                        }
+                    />
+                    <Route exact path='/about' element={<AboutPage />} />
+                    <Route exact path='/gallery' element={<FullGallery />} />
+                    <Route exact path='/courses' element={<Courses />} />
+                    <Route exact path='/events' element={<Event />} />
+                    <Route exact path='/notification' element={<Notify />} />
+                    <Route exact path='/faculty' element={<FacultyPage />} />
+                    {/* <Route exact path='/admission' element={<Admission/>} /> */}
+                    <Route exact path='/contact' element={<Contact />} />
+                </Routes>
+                <Footer />
+            </div>
+        </Router>
+    );
+}
